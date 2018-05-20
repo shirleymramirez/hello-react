@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Higher Order Function</title>
+</head>
+<body>
+	<h1>Map Review</h1>
+
+	<script type="text/javascript">
+		
+		// is a method that worked in each item of the array that return a new array in which new elements went through a function
+		// can received another function as an argument
+		// Does not delete but transforms each element in a new array
+			var forecast = [ 
+				{day: 'Monday', sun: true, humidity: 10}, 
+				{day: 'Tuesday', sun: false,humidity: 100},
+				{day: 'Wednesday', sun: false, humidity: 100},
+				{day: 'Thursday', sun: true, humidity: 25}, 
+				{day: 'Friday', sun: true, humidity: 100}, 
+				{day: 'Saturday', sun: false, humidity: 15},
+				{day: 'Sunday', sun: true, humidity: 100}
+			];
+
+			var humid = forecast.map(function(wetness){ 
+				return wetness.humidity
+			;})
+
+			console.log(humid);
+
+			var numbers = [5, 10, 15, 20, 25];
+			var triples = numbers.map(function(num) { return num * 3 ;})
+
+			console.log(triples);
+
+
+	 </script>
+</body>
+</html>
