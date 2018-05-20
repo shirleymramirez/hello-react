@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Higher Order Function</title>
+</head>
+<body>
+	<h1>Filter Review</h1>
+
+	<script type="text/javascript">
+
+		var forecast = [
+			{day: 'Monday', sun: true},
+			{day: 'Tuesday', sun: false},
+			{day: 'Wednesday', sun: false},
+			{day: 'Thursday', sun: true}, 
+			{day: 'Friday', sun: true}, 
+			{day: 'Saturday', sun: false}, 
+			{day: 'Sunday', sun: true}
+		];
+
+		//is a method which returns an array already evaluated if it is true or false condition. Will return a new true array
+		var sunnyDays = forecast.filter(function(weather) { 
+			return weather.sun;
+		 })
+
+		console.log(sunnyDays);
+	 </script>
+</body>
+</html>
