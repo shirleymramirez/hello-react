@@ -7,7 +7,7 @@
 	<script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
 	<script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
-	<title>Map Method Code</title>
+	<title>Filter Method Code</title>
 </head>
 <body>
 	<div id="app">React has not rendered yet</div>
@@ -18,22 +18,31 @@
 		//function FamilyList(props) {
 			
 			//assign props.siblings to siblings  variable to clean up code (optional)
-		//	var siblings = props.siblings;
+			//var siblings = props.siblings;
 
-			//use map method on siblings array to create new array full of JSX code
-		//	var siblingsListItem = siblings.map(function(person){
-		//		return <div key={person.id}>{person.name}</div>
-		//	});
+			//use filter method only to show the female siblings
+			//var siblings = siblings.filter(function(person){
+			//	return person.female;
+			//});
+			
+			//METHOD CHAINING 
+			//var siblingsListItem = siblings.filter(function(person){
+			//	return person.female;
+			//}).map(function(person){
+			//	return <div key={person.id}>{person.name}</div>
+			//});
 
-		//	return(
-		//		<div>{siblingsListItem}</div>
-		//	);
-		//} 
+			//return(
+			//	<div>{siblingsListItem}</div>
+			//);
+		//}  
 
 		//Alternative FamilyList component
 		function FamilyList(props) {
 			return(
-				<div>{props.siblings.map(function(person){
+				<div>{props.siblings.filter(function(person){
+					return person.female;
+				}).map(function(person){
 					return <div key={person.id}>{person.name}</div>
 				})}</div>
 			);
