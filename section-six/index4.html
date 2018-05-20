@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie-edge">
+	<script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+	<script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+	<title>Map and Filter in a class components</title>
+</head>
+<body>
+	<div id="app">React has not rendered yet</div>
+
+	<script type="text/babel">
+		
+		//class components
+		class FamilyList extends React.Component {
+			render() {
+				//use map method on siblings array to return a div for each name property
+				var siblingLists = this.props.siblings.map(function(person){
+					return <div key={person.id}>{person.name}</div>;
+				});
+				return(
+					<div>{siblingLists}</div>
+				);
+			}
+		}
+		
+		var siblings = [
+			{id: 1, name: 'Chris', female: false },
+			{id: 2, name: 'Jane', female: true },
+			{id: 3, name: 'Lanie', female: true },
+			{id: 4, name: 'Mike', female: false }
+		]
+
+		ReactDOM.render(
+			<FamilyList 
+				siblings={siblings}
+			/>,
+			document.getElementById("app")
+		)
+	</script>
+</body>
+</html>
