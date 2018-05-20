@@ -22,16 +22,36 @@
 				{day: 'Sunday', sun: true, humidity: 100}
 			];
 
+			// will output all the humidity from the forecast variable
 			var humid = forecast.map(function(wetness){ 
-				return wetness.humidity
-			;})
+				return wetness.humidity;
+			})
 
 			console.log(humid);
 
 			var numbers = [5, 10, 15, 20, 25];
-			var triples = numbers.map(function(num) { return num * 3 ;})
+
+			// will output numbers from array in the var numbers and multiply by 3
+			var triples = numbers.map(function(num) { 
+				return num * 3;
+			})
 
 			console.log(triples);
+
+
+			var greetings = [ 'good morning', 'hello world', 'hi', 'hello' ];
+
+			//  will go to array of greetings and will change it all to uppercase
+			var shout = greetings.map(function(salutation){
+				return salutation.toUpperCase();
+			})
+
+			console.log(shout);
+
+			// will output the first element from the array
+			// shift() will removes the first element from an array and returns that removed element
+			var hiShout = shout.shift();
+			console.log(hiShout);
 
 
 	 </script>
