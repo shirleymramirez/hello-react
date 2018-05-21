@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie-edge">
+	<script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+	<script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Friendly Card Using Map and Filter Method</title>
+</head>
+<body>
+	<div id="app">React has not rendered yet</div>
+
+	<script type="text/babel">
+
+		function Friendly(props) {
+
+			//filtered male array item that will rendered in the DOM
+			var malePeopleItem = props.people.filter(function(person){
+				return person.gender === 'male';
+			}).map(function(person){
+				
+				//assign  styling to  Friendly Component
+				var friendlyStyle = {
+					display:'inline-block',
+					margin: 20,
+					height: 300,
+					width: 200,
+					padding: 0,
+					backgroundColor: "#FFF",
+					Webkitfilter: "drop-shadow(0px 0px 5px #555)",
+					filter: "drop-shadow(0px 0px 5px #555)"
+				};
+				//Return the exact same consent but make sure JSX is rendering the right Javascript object (person)
+				return <div style={friendlyStyle} key={person.name}>
+						<Avatar img={person.img}/>
+						<UserName name={person.name}/>
+						<GetConnected/>
+					</div>
+			});
+			
+			//filtered female array item that will rendered in the DOM
+			var femalePeopleItem = props.people.filter(function(person){
+				return person.gender === 'female';
+			}).map(function(person){
+				
+				//assign  styling to  Friendly Component
+				var friendlyStyle = {
+					display:'inline-block',
+					margin: 20,
+					height: 300,
+					width: 200,
+					padding: 0,
+					backgroundColor: "#FFF",
+					Webkitfilter: "drop-shadow(0px 0px 5px #555)",
+					filter: "drop-shadow(0px 0px 5px #555)"
+				};
+				//Return the exact same consent but make sure JSX is rendering the right Javascript object (person)
+				return <div style={friendlyStyle} key={person.name}>
+						<Avatar img={person.img}/>
+						<UserName name={person.name}/>
+						<GetConnected/>
+					</div>
+			});
+
+
+			return(
+				//rendering female and male in the browser	
+				<div>
+					<h1>Female Friends</h1>
+						<div>{femalePeopleItem}</div>
+					<hr/>
+					<h1>Male Friends</h1>
+						<div>{malePeopleItem}</div>
+				</div>
+			);
+		}
+
+		function Avatar(props) {
+			var avatarStyle = {
+				marginLeft: 27,
+				marginTop: 20,
+				width: 150,
+				height: 150,
+				borderRadius: "50%"
+			}
+
+			return(
+				<img src={props.img} alt="profile pic" style={avatarStyle}/>	
+			);
+		}
+	
+		function UserName(props) {
+			var nameStyle = {
+				fontSize: 24,
+				textAlign: 'center',
+				fontfamily: "Arial, Helvetica, sans-serif",
+				margin: 20
+			}
+			return(
+				<h1 style={nameStyle}>{props.name}</h1>
+			);
+		}
+
+		function GetConnected() {
+			var getConnectedStyle = {
+				marginLeft: 15
+			}
+			return(
+				<div style={getConnectedStyle}>
+					<Like/>
+					<Share/>
+					<Add/>
+				</div>
+			);
+		}
+
+		var iconStyle = {
+			margin: 20
+		}
+		
+		//Like Component
+		function Like(){
+			return(
+				<i className="fa fa-thumbs-o-up" aria-hidden="true" style={iconStyle}></i>
+			);
+		}
+
+		//Share Component
+		function Share(){
+			return(
+				<i className="fa fa-share" aria-hidden="true" style={iconStyle}></i>
+			);
+		}
+
+		// Add Component
+		function Add(){
+			return(
+				<i className="fa fa-users" aria-hidden="true" style={iconStyle}></i>
+			);
+		}
+		
+		var people = [
+			{
+				id: 1, 
+				name: "Shirley", 
+				gender: "female", 
+				img: "https://avatars1.githubusercontent.com/u/31137669?s=400&u=a9854848def8b55ae0aaf781dacfb1253ef64909&v=4"
+			},
+			{
+				id: 2, 
+				name: "Lilet", 
+				gender: "female", 
+				img: "https://avatars1.githubusercontent.com/u/31137669?s=400&u=a9854848def8b55ae0aaf781dacfb1253ef64909&v=4"
+			},
+			{
+				id: 3, 
+				name: "Shari", 
+				gender: "male", 
+				img: "https://avatars1.githubusercontent.com/u/31137669?s=400&u=a9854848def8b55ae0aaf781dacfb1253ef64909&v=4"
+			},
+			{
+				id: 4, 
+				name: "Let", 
+				gender: "male", 
+				img: "https://avatars1.githubusercontent.com/u/31137669?s=400&u=a9854848def8b55ae0aaf781dacfb1253ef64909&v=4"
+			},
+			{
+				id: 5, 
+				name: "Ganda", 
+				gender: "female", 
+				img: "https://avatars1.githubusercontent.com/u/31137669?s=400&u=a9854848def8b55ae0aaf781dacfb1253ef64909&v=4"
+			},
+			{
+				id: 6, 
+				name: "Talino", 
+				gender: "male",
+				img: "https://avatars1.githubusercontent.com/u/31137669?s=400&u=a9854848def8b55ae0aaf781dacfb1253ef64909&v=4"
+			},
+			{
+				id: 7, 
+				name: "Galing", gender: "female",
+				img: "https://avatars1.githubusercontent.com/u/31137669?s=400&u=a9854848def8b55ae0aaf781dacfb1253ef64909&v=4"
+			},
+			{
+				id: 8, 
+				name: "Pinagpala", gender: "female",
+				img: "https://avatars1.githubusercontent.com/u/31137669?s=400&u=a9854848def8b55ae0aaf781dacfb1253ef64909&v=4"
+			},
+			{
+				id: 9, 
+				name: "Monay", gender: "male",
+				img: "https://avatars1.githubusercontent.com/u/31137669?s=400&u=a9854848def8b55ae0aaf781dacfb1253ef64909&v=4"
+			},
+			{
+				id: 10, 
+				name: "Takaw", gender: "male",
+				img: "https://avatars1.githubusercontent.com/u/31137669?s=400&u=a9854848def8b55ae0aaf781dacfb1253ef64909&v=4"
+			}
+		];
+
+		ReactDOM.render(
+		<Friendly 
+			people={people}
+		/>,document.getElementById("app")
+		);
+	</script>
+</body>
+</html>
