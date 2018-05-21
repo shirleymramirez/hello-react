@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie-edge">
+	<script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+	<script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+	<title>This & Bind Review</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		let person1 = { name: 'Alex'};
+		let person2 = { name: 'Alexis'};
+
+		function namer() { return this.name; }
+
+		//use bind method to return the name "Alex" and "Alexis"
+		console.log(namer.bind(person1)());
+		console.log(namer.bind(person2)());
+
+		let number = { 
+			x: 24, 
+			y: 22
+		};
+
+		let count = function(){ 
+			console.log(this.x + this.y);
+		};
+
+		let boundFunc = count.bind(number);
+
+		boundFunc();
+
+	</script>
+</body>
+</html>
