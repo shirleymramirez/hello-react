@@ -41,28 +41,50 @@
 		//	}
 		//}
 		
+		//class GuessAge extends React.Component{
+		//	constructor(props){
+		//		super(props);
+		//		this.state = {
+		//			age: 'Guess my Age'
+		//		};
+		//	}
+		//	onButtonClick() {
+		//		this.setState({
+		//			age: '37'
+		//		});
+		//	}
+		//	render(){
+		//		return(
+		//			<div>
+		//				<h1>Guessing game</h1>
+		//				<h2>{this.state.age}</h2>
+		//				<button onClick={this.onButtonClick.bind(this)}>reveal my age</button>
+		//			</div>
+		//		);
+		//	}
+		//}
+
 		class GuessAge extends React.Component{
 			constructor(props){
 				super(props);
 				this.state = {
 					age: 'Guess my Age'
 				};
-				//manually bind 'this' to the component
-				//redefining the component method on button click
-				//setting it to the same function but bound to this the component
-				//this.onButtonClick = this.onButtonClick.bind(this);
 			}
 			onButtonClick() {
 				this.setState({
 					age: '37'
 				});
 			}
+			// arrow functions preserve the 'this' context when they are called
+			// since we are in the render() method, 'this' keyword is in reference
+			// to our component
 			render(){
 				return(
 					<div>
 						<h1>Guessing game</h1>
 						<h2>{this.state.age}</h2>
-						<button onClick={this.onButtonClick.bind(this)}>reveal my age</button>
+						<button onClick={() => this.onButtonClick()}>reveal my age</button>
 					</div>
 				);
 			}
