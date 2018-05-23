@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie-edge">
+	<script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+	<script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+	<title>State Project</title>
+</head>
+<body>
+	<div id="app">React has not rendered yet</div>
+
+	<script type="text/babel">
+		
+		//Create class component for DinnerVote
+		class DinnerVote extends React.Component{
+			constructor(props) {
+				super(props);
+				this.state = {
+					votes: 0
+				};
+				this.handlerButtonAdd = this.handlerButtonAdd.bind(this);
+				this.handlerButtonSubtract = this.handlerButtonSubtract.bind(this);
+			}
+			handlerButtonAdd(){
+				this.setState({
+					votes: this.state.votes + 1
+				})
+			}
+			handlerButtonSubtract(){
+				this.setState({
+					votes: this.state.votes - 1
+				})
+			}
+
+			render(){
+				var dinnerVoteStyle = {
+					display: "inline-block",
+					textAlign: "center",
+					margin: 20,
+					height: 500,
+					width: 300,
+					padding: 0,
+					backgroundColor: "lightgrey",
+					WebkitFilter: "drop-shadow(0px, 0px, 5px, #555)",
+					filter: "drop-shadow(0px, 0px, 5px, #555)"
+				}
+
+				var foodStyle = {
+					height: 200,
+					width: 200,
+					marginTop: 20
+				}
+				return(
+					<div style={dinnerVoteStyle}>
+						<img src={this.props.img} alt="food image" style={foodStyle}></img>
+						<h1>Dinner Time</h1>
+						<p>Vote Here If You Want This</p>
+						<button onClick={this.handlerButtonAdd}>+1</button>
+						<p>Vote Here If You Don't Want This</p>
+						<button onClick={this.handlerButtonSubtract}>-1</button>
+						<p>Total: {this.state.votes}</p>
+					</div>
+				);
+			}	
+		}
+		
+		ReactDOM.render(
+			<div>
+				<DinnerVote img="https://images.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg?cs=srgb&dl=close-up-cooking-dinner-46239.jpg&fm=jpg"/>
+				<DinnerVote img="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?cs=srgb&dl=chips-dinner-fast-food-70497.jpg&fm=jpg"/>
+				<DinnerVote img="https://images.pexels.com/photos/8500/food-dinner-pasta-spaghetti-8500.jpg?cs=srgb&dl=basil-dinner-food-8500.jpg&fm=jpg"/>
+			</div>,
+			document.getElementById("app")
+		)
+	</script>
+</body>
+</html>
